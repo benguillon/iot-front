@@ -1,2 +1,3 @@
-<button type="button" class="btn btn-success">Allumer</button>
-<button type="button" class="btn btn-danger">Eteindre</button>
+<h2>Etat de la lumière : {{ledState}}</h2>
+<button type="button" class="btn btn-success" (click)="setState(ledon)">Allumer</button>
+<button type="button" class="btn btn-danger" (click)="setState(ledoff)">Eteindre</button>

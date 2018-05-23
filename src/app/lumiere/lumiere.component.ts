@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'chart.js'
+import { DataService } from '../services/data.service';
+
+
 
 @Component({
   selector: 'app-lumiere',
@@ -7,10 +9,23 @@ import { Chart } from 'chart.js'
   styles: []
 })
 export class LumiereComponent implements OnInit {
+  ledon = "led.on";
+  ledoff = "led.off";
+  ledState = "Eteinte";
 
-  constructor() { }
+  constructor(private _dataService : DataService) {
+
+  }
 
   ngOnInit() {
   }
 
+  setState(state){
+    this._dataService.setState(state);
+    if(state == "led.on"){
+      this.ledState = "Allumée";
+    } else {
+      this.ledState = "Eteinte";
+    }
+  }
 }

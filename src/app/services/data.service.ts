@@ -8,7 +8,17 @@ export class DataService {
   
   constructor(private _http: Http) { }
 
-  getGroups() {
-    return this._http.get('/groups').map(result => this.result = result.json().data);
+  setState(state) {
+    this._http.post('/lumiere', {
+      state: state
+    })
+      .subscribe(
+        res => {
+          console.log(res);
+        },
+        err => {
+          console.log("Error occured");
+        }
+      );
   }
 }
